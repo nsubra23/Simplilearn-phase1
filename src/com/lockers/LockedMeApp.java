@@ -13,6 +13,22 @@ public class LockedMeApp {
 	public static void main(String[] args) {
 		
 		Scanner obj=new Scanner(System.in);
+		
+		saveFile(obj,FOLDER_PATH);
+		
+	//	getAllFiles(FOLDER_PATH);
+		
+	}
+	
+	public static void getAllFiles(String path) {
+		List<String> fileNames=FileUtil.listAllFiles(FOLDER_PATH);
+		if(fileNames!=null && !fileNames.isEmpty())
+			fileNames.forEach(elt->System.out.println(elt));
+		else
+			System.out.println("Folder is empty");
+	}
+	
+	public static void saveFile(Scanner obj,String FOLDER_PATH) {
 		System.out.println("Enter the filename");
 		String fileName=obj.next();
 		System.out.println("Enter the number of lines");
@@ -30,16 +46,6 @@ public class LockedMeApp {
 		else
 			System.out.println("some error has occured.Please contact system administrator");
 		
-	//	getAllFiles(FOLDER_PATH);
-		
-	}
-	
-	public static void getAllFiles(String path) {
-		List<String> fileNames=FileUtil.listAllFiles(FOLDER_PATH);
-		if(fileNames!=null && !fileNames.isEmpty())
-			fileNames.forEach(elt->System.out.println(elt));
-		else
-			System.out.println("Folder is empty");
 	}
 
 }
