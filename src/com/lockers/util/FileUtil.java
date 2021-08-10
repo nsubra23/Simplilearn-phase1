@@ -1,6 +1,8 @@
 package com.lockers.util;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -35,14 +37,26 @@ public class FileUtil {
 	}
 
 	/**
+	 * This method will read input like filepath, file name and content from user
+	 * and it will add that content by creating a new file
 	 * 
 	 * @param path
 	 * @param filename
 	 * @param content
-	 * @return
+	 * @return boolean
 	 */
-	public boolean addFile(String path, String filename, List<String> content) {
-		return true;
+	public static boolean addFile(String path, String filename, List<String> content) {
+		try(FileWriter writer= new FileWriter(path+File.separator+filename); )
+		{
+			for(String text:content) {
+				writer.write(text);
+			}
+				
+			return true;
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 }

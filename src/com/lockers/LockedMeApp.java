@@ -1,5 +1,6 @@
 package com.lockers;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -11,7 +12,25 @@ public class LockedMeApp {
 	
 	public static void main(String[] args) {
 		
-		getAllFiles(FOLDER_PATH);
+		Scanner obj=new Scanner(System.in);
+		System.out.println("Enter the filename");
+		String fileName=obj.next();
+		System.out.println("Enter the number of lines");
+		int line_count=obj.nextInt();
+		List<String> lines=new ArrayList<String>();
+		for(int i=0;i<line_count;i++) {
+			System.out.println("Enter the line");
+			String line=obj.next();
+			lines.add(line);
+			
+		}
+		boolean isAdded=FileUtil.addFile(FOLDER_PATH, fileName, lines);
+		if(isAdded)
+			System.out.println("File and Data saved successfully");
+		else
+			System.out.println("some error has occured.Please contact system administrator");
+		
+	//	getAllFiles(FOLDER_PATH);
 		
 	}
 	
