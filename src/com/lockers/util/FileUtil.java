@@ -58,5 +58,17 @@ public class FileUtil {
 			return false;
 		}
 	}
-
+	
+	public static boolean deleteFile(String path, String filename) {
+		boolean flag=false;
+		File file=new File(path+File.separator+filename);
+		 if(file.exists()) {
+			 flag=file.delete();
+			 
+		 }else {
+			 System.out.println("File not exists");
+		 }
+		return flag;
+		
+	}
 }

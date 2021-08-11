@@ -13,8 +13,12 @@ public class LockedMeApp {
 	public static void main(String[] args) {
 		
 		Scanner obj=new Scanner(System.in);
+		System.out.println("enter the filename");
+		String fileName=obj.next();
+		deleteFile(FOLDER_PATH, fileName);
 		
-		saveFile(obj,FOLDER_PATH);
+		
+	//	saveFile(obj,FOLDER_PATH);
 		
 	//	getAllFiles(FOLDER_PATH);
 		
@@ -43,6 +47,14 @@ public class LockedMeApp {
 		boolean isAdded=FileUtil.addFile(FOLDER_PATH, fileName, lines);
 		if(isAdded)
 			System.out.println("File and Data saved successfully");
+		else
+			System.out.println("some error has occured.Please contact system administrator");
+		
+	}
+	public static void deleteFile(String FOLDER_PATH, String fileName) {
+		boolean isDeleted=FileUtil.deleteFile(FOLDER_PATH, fileName);
+		if(isDeleted)
+			System.out.println("File deleted successfully");
 		else
 			System.out.println("some error has occured.Please contact system administrator");
 		
