@@ -15,8 +15,10 @@ public class LockedMeApp {
 		Scanner obj=new Scanner(System.in);
 		System.out.println("enter the filename");
 		String fileName=obj.next();
-		deleteFile(FOLDER_PATH, fileName);
 		
+		searchFile(FOLDER_PATH, fileName);
+		
+	//	deleteFile(FOLDER_PATH, fileName);
 		
 	//	saveFile(obj,FOLDER_PATH);
 		
@@ -57,6 +59,14 @@ public class LockedMeApp {
 			System.out.println("File deleted successfully");
 		else
 			System.out.println("some error has occured.Please contact system administrator");
+		
+	}
+	public static void searchFile(String FOLDER_PATH, String fileName) {
+		boolean isFound=FileUtil.searchForFile(FOLDER_PATH, fileName);
+		if(isFound)
+			System.out.println("File is found");
+		else
+			System.out.println("File is not there.Please contact system administrator");
 		
 	}
 

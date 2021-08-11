@@ -62,7 +62,7 @@ public class FileUtil {
 	public static boolean deleteFile(String path, String filename) {
 		boolean flag=false;
 		File file=new File(path+File.separator+filename);
-		 if(file.exists()) {
+		 if(fileExistsCaseSensitive(file)) {
 			 flag=file.delete();
 			 
 		 }else {
@@ -70,5 +70,18 @@ public class FileUtil {
 		 }
 		return flag;
 		
+	}
+	public static boolean searchForFile(String path, String filename) {
+		File file=new File(path+File.separator+filename);
+		return fileExistsCaseSensitive(file);
+		
+	}
+	
+	public static boolean fileExistsCaseSensitive(File file) {
+	    try {
+	        return file.exists() && file.getCanonicalFile().getName().equals(file.getName());
+	    } catch (IOException e) {
+	        return false;
+	    }
 	}
 }
