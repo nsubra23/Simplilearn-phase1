@@ -65,8 +65,6 @@ public class FileUtil {
 		 if(fileExistsCaseSensitive(file)) {
 			 flag=file.delete();
 			 
-		 }else {
-			 System.out.println("File not exists");
 		 }
 		return flag;
 		

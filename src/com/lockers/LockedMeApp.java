@@ -13,16 +13,39 @@ public class LockedMeApp {
 	public static void main(String[] args) {
 		
 		Scanner obj=new Scanner(System.in);
-		System.out.println("enter the filename");
-		String fileName=obj.next();
 		
-		searchFile(FOLDER_PATH, fileName);
+		System.out.println("*******************************************************************************************");
+		System.out.println("\t\t LockedMe.com");
+		System.out.println("*******************************************************************************************");
+		System.out.println("1. List All Files");
+		System.out.println("2. Add File");
+		System.out.println("3. Delete File");
+		System.out.println("4. Search File");
+		System.out.println("*******************************************************************************************");
+		System.out.println("Enter your choice");
+		int choice=obj.nextInt();
 		
-	//	deleteFile(FOLDER_PATH, fileName);
-		
-	//	saveFile(obj,FOLDER_PATH);
-		
-	//	getAllFiles(FOLDER_PATH);
+		switch(choice) {
+			case 1: getAllFiles(FOLDER_PATH);
+						break;
+			case 2: 
+				saveFile(obj,FOLDER_PATH);
+						break;
+			
+			case 3: 
+				System.out.println("Enter the filename");
+				String fileName=obj.next();
+				deleteFile(FOLDER_PATH,fileName);
+						break;
+			
+			case 4: 
+				System.out.println("enter the filename");
+				String fleName=obj.next();
+				searchFile(FOLDER_PATH,fleName);
+						break;
+			default:
+				System.exit(0);
+		}
 		
 	}
 	
@@ -58,7 +81,7 @@ public class LockedMeApp {
 		if(isDeleted)
 			System.out.println("File deleted successfully");
 		else
-			System.out.println("some error has occured.Please contact system administrator");
+			System.out.println("File may not exists");
 		
 	}
 	public static void searchFile(String FOLDER_PATH, String fileName) {
